@@ -25,3 +25,24 @@ function ativarProduto(parametro){
 }
 
 parametros.forEach(ativarProduto);
+
+
+//Perguntas Frequentes
+
+const perguntas = document.querySelectorAll('.perguntas button');
+
+function ativarPergunta(event){
+    const pergunta = event.currentTarget;
+    const controls = pergunta.getAttribute('aria-controls');
+    const resposta = document.getElementById(controls);
+    
+    pergunta.getAttribute('aria-expanded') == 'true' ? pergunta.setAttribute('aria-expanded', 'false') : pergunta.setAttribute('aria-expanded', 'true');
+    resposta.classList.toggle('ativa');
+
+}
+
+function eventosPerguntas(pergunta){
+    pergunta.addEventListener('click', ativarPergunta);
+}
+
+perguntas.forEach(eventosPerguntas);
